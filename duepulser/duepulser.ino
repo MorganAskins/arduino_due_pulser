@@ -14,7 +14,6 @@ void InitPIO()
 
   // Enable output on B25
   PIOB->PIO_OER = PIO_PB25;
-
 }
 
 void InitTimer()
@@ -23,11 +22,11 @@ void InitTimer()
   // I see a PMC_PCR with PERIPH_DIV_MCK (value 0)
 
   int mck = 84e6;
-  int t2 = mck/2;
+  int t2 = mck / 2;
   // nanoseconds
   float pulseDelaySec = 1e-6;
   int pulseDelay = t2 * pulseDelaySec;
-  int pulseWidth = 1; // cycles, so 120 ns
+  int pulseWidth = 4; // cycles, so 120 ns
 
   // Enable clock for Timer 0
   PMC->PMC_PCER0 = _BV(ID_TC0);
