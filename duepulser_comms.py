@@ -4,8 +4,7 @@ import serial
 
 class PulserCommunication():
   def __init__(self):
-    self.findSerial()
-    self.connectSerial()
+    self.connected = False
 
   def findSerial(self):
     self.port_list = list(slp.comports())
@@ -25,6 +24,7 @@ class PulserCommunication():
       self.arduino = serial.Serial(self.port, 9600, timeout=1)
       self.arduino.write(b'Hello\n')
       ret = self.arduino.readall()
+      self.connected = True
     except SerialException:
       print('Incorrect serial port %s' % self.port)
 
