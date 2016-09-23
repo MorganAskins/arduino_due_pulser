@@ -2,7 +2,7 @@
 import serial.tools.list_ports as slp
 import serial
 
-class PulserComm():
+class PulserCommunication():
   def __init__(self):
     self.findSerial()
     self.connectSerial()
