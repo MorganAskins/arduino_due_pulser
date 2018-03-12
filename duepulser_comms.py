@@ -25,7 +25,8 @@ class PulserCommunication():
       self.arduino.write(b'Hello\n')
       self.connected = True
       return self.arduino.readall()
-    except serial.serialutil.SerialException:
+    except serial.serialutil.SerialException as e:
+      print(e)
       print('Incorrect serial port %s' % self.port)
 
   def pulserOn(self):
